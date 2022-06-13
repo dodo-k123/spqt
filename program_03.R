@@ -1,0 +1,77 @@
+# -------------------------------3.1---------------------------------
+# To find variance, standard deviation, mean deviation and quartile deviations for the given raw data
+data = read.csv(file.choose())
+print(data)
+x_barrawdata = mean(data$SepalLengthCm)
+print(x_barrawdata)
+data_range = range(data$SepalLengthCm)
+print(data_range)
+bins = seq(4, 8, by=0.5)
+CI_SL = cut(data$SepalLengthCm, bins, right = FALSE)
+print(CI_SL)
+table(CI_SL)
+transform(table(CI_SL))
+# -----------Calculating Measures of Dispersion-----------
+## Calculate variance of raw data
+variance_rawdata = var(data$SepalLengthCm)
+print(variance_rawdata)
+
+# Quartile deviation
+## Calculate Quartile deviation for raw data
+QD1_rawdata = quantile(data$SepalLengthCm, 0.25) # 0.25 because of 1st quartile
+print(QD1_rawdata)
+QD3_rawdata = quantile(data$SepalLengthCm, 0.75)
+print(QD3_rawdata)
+qr_rawdata = IQR(data$SepalLengthCm) #quartile_range_rawdata full version
+print(qr_rawdata)
+QD_rawdata = qr_rawdata/2
+print(QD_rawdata)
+
+# Standard Deviation
+## Standard deviation of raw data
+SD_rawdata = sd(data$SepalLengthCm)
+print(SD_rawdata)
+
+# Calculating CV (coefficient of covariance)
+## CV for raw data
+cv_rawdata = SD_rawdata * 100/x_barrawdata
+print(cv_rawdata)
+
+# Mean deviation
+## Mean deviation of raw data
+mean_deviation_rd = mad(data$SepalLengthCm, center = x_barrawdata) #mean_deviation_raw_data
+print(mean_deviation_rd)
+# -------------------------------/3.1---------------------------------
+
+# -------------------------------3.2---------------------------------
+# To find central and non – central moments for the given raw data
+data = read.csv(file.choose())
+install.packages("moments")
+library(moments)
+FONCM_rawdata = moment(data10$SepalLengthCm,order = 1,central = FALSE)
+print(FONCM_rawdata)
+FONCM_rawdata = moment(data10$SepalLengthCm,order = 2,central = FALSE)
+print(FONCM_rawdata)
+FONCM_rawdata = moment(data10$SepalLengthCm,order = 3,central = FALSE)
+print(FONCM_rawdata)
+FONCM_rawdata = moment(data10$SepalLengthCm,order = 4,central = FALSE)
+print(FONCM_rawdata)
+
+FOCM_rawdata = moment(data10$SepalLengthCm,order = 1,central = TRUE)
+print(FONCM_rawdata)
+FOCM_rawdata = moment(data10$SepalLengthCm,order = 2,central = TRUE)
+print(FONCM_rawdata)
+FOCM_rawdata = moment(data10$SepalLengthCm,order = 3,central = TRUE)
+print(FONCM_rawdata)
+FOCM_rawdata = moment(data10$SepalLengthCm,order = 4,central = TRUE)
+print(FONCM_rawdata)
+# -------------------------------/3.2---------------------------------
+
+# -------------------------------3.3---------------------------------
+# To find skewness and kurtosis for the given data
+data10 = read.csv(file.choose())
+skew_rawdata = skewness(data10$SepalLengthCm)
+print(skew_rawdata)
+KURT_rawdata = kurtosis(data10$SepalLengthCm)
+print(KURT_rawdata)
+# -------------------------------/3.3---------------------------------
