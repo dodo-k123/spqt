@@ -1,0 +1,39 @@
+# -------------------------------2.1-------------------------------
+# To find mean for the given raw data
+data = read.csv(file.choose())
+xbar_rawdata = mean(data$SepalLengthCm)
+print(xbar_rawdata)
+# -------------------------------/2.1-------------------------------
+
+# -------------------------------2.2-------------------------------
+# To find median for the given raw data
+data = read.csv(file.choose())
+print(data)
+data_range = range(data$SepalLengthCm)
+print(data_range)
+bins = seq(4, 8, by=0.5)
+CI_SL = cut(data$SepalLengthCm, bins, right = FALSE)
+print(CI_SL)
+table(CI_SL)
+transform(table(CI_SL))
+
+# Median Raw Data
+## 1st way
+MD_rawdata = median(data$SepalLengthCm)
+print(MD_rawdata)
+## 2nd way - quantile command
+MD1_rawdata = quantile(data$SepalLengthCm, 0.5)
+print(MD1_rawdata)
+# Frequency Distribution
+MD_freqdistr = median(table(CI_SL))
+print(MD_freqdistr)
+MD1_freqdistr = quantile(table(CI_SL), 0.5)
+print(MD1_freqdistr)
+# -------------------------------/2.2-------------------------------
+
+# -------------------------------2.3-------------------------------
+# To find mode for the given raw data
+y = table(data$SepalLengthCm)
+mode_data = names(y)[y==max(y)]
+print(mode_data)
+# -------------------------------/2.3-------------------------------
