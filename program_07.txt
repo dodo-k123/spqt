@@ -1,0 +1,115 @@
+#To find-Two dices are rolled 50 time, find the probability of getting sum 7 
+#(i)exactly 3 times
+#(ii)atmost 6 times
+#(iii)at least 10 times
+#Mean = E(x) = np =  50*6/36 =8.333
+P_1=dpois(3,8.333)
+P_1
+x=c(0:50)
+x
+y=dpois(x,8.333)
+y
+plot(x,y,type="h",main="poisson probabilities-dpois",xlab="poisson random variable",ylab="probabilities")
+p_2=ppois(6,8.333,lower.tail=TRUE)
+p_2
+z=ppois(x,8.333)
+z
+plot(x,z,type="s",main="poisson probabilities-ppois",xlab="poisson r.v",ylab="cumulative probabilities")
+p_3=ppois(9,8.333,lower.tail=FALSE)
+p_3
+1-p_3
+ppois(9,8.333,lower.tail=FALSE)
+
+#2% of the items of a factory are defective.The items are packed in boxed.what is the probability that there will be-
+
+#(i)
+dpois(2,lambda = 2)
+x=0:5
+x
+y=dpois(x,lambda = 2)
+y
+plot(x,y,type="h",col="blue",lwd=2,main="poisson probability distribution",xlab="no of defective items",ylab="probability P(X=r)")
+#(ii)
+ppois(5,lambda = 2,lower.tail=TRUE)
+#alternate
+sum(dpois(0:5,lambda=2))
+
+#(iii)
+ppois(2,lambda = 2,lower.tail = FALSE)
+1-ppois(2,lambda = 2,lower.tail = TRUE)
+x=0.8
+x
+y=ppois(x,lambda = 2)
+y
+expr1=expression(paste("cumulative probability",P(X<=r)))
+plot(x,y,type="s",col="red",lwd=2)
+rpois(15,lambda = 4)
+
+#5 coins are tossed 65 times find the probability of getting 4 heads
+#(i)exactly 20 times
+#(ii)atmost 35 times
+#(iii)atleast 20 times
+#mean = np = 65*5/32 = 10.15
+
+P_1=dpois(20,10.15)
+P_1
+x=c(0:65)
+x
+y=dpois(x,10.15)
+y
+plot(x,y,type="h",main="poisson probabilities-dpois",xlab="poisson random variable",ylab="probabilities")
+p_2=ppois(35,10.15,lower.tail=TRUE)
+p_2
+z=ppois(x,10.15)
+z
+plot(x,z,type="s",main="poisson probabilities-ppois",xlab="poosion r.v",ylab="cumulative probabilities")
+p_3=ppois(19,10.15,lower.tail=FALSE)
+p_3
+1-p_3
+
+#The probability of the defect item in the lot is 4*10^-4 , there are 5000 items . Find the probability that 
+#(i) exactly 5 defects    P(X=5)
+#(ii) atmopst 4 defects   P(X<=4)
+#(iii) atleast 2 defects   P(X>=2)
+#(iv) P(3<=X<=6)
+#mean n*p = 5000*4/10000 =2 
+#(i)
+P_1=dpois(5,2)
+P_1
+x=seq(0:10)
+y=dpois(x,9.5)
+plot(x,y,type="h",main="poisson prob mass function",xlab="poisson r.v",ylab="probabilities",col="red")
+#(ii)
+p_2=ppois(4,2,lower.tail=TRUE)
+y=ppois(x,2)
+plot(x,y,type="s",main="poisson cumulative probabilities",xlab="r.v",ylab="cumulative probabilities",col="green")
+#(iii)
+p_3=ppois(2,2,lower.tail=FALSE)
+p_3
+#(iv)
+p_4 = sum(dpois(c(3:6),2))
+p_4
+
+
+#4 coins are tossed 20 times, find the probability of getting 3 heads and 1 tail
+#(i)exactly 4 times
+#(ii)atmost 2 times
+#(iii)atleast 1 time
+#mean = 20*4C3/2^4 = 20*1/4 =5
+
+P_1=dpois(4,5)
+P_1
+x=seq(0:8)
+y=dpois(x,5)
+#plotting the dpois
+plot(x,y,type="h",main="poisson prob mass function",xlab="poisson r.v",ylab="probabilities",col="red")
+#(ii)
+p_2=ppois(2,5,lower.tail=TRUE)
+p_2
+#plotting of ppois
+y=ppois(x,5)
+y
+plot(x,y,type="s",main="poisson cumulative probabilities",xlab="r.v",ylab="cumulative probabilities",col="green")
+#(iii)
+p_3=ppois(1,5,lower.tail=FALSE)
+p_3

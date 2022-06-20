@@ -1,0 +1,19 @@
+install.packages("queueing")
+library(queueing)
+mm1_model=function(lambda,mu,n)
+{
+  rho=lambda/mu
+  Ls=lambda/(mu-lambda)
+  Lq=lambda^2/(mu*(mu-lambda))
+  Ws=1/(mu-lambda)
+  Wq=Lq/lambda
+  Pn=(1-rho)*(rho)^n
+  X=data.frame(rho,Ls,Lq,Ws,Wq,Pn)
+  names(X)=c("rho","Ls","Lq","Ws","Wq","Pn")
+  return(X)
+}
+
+P_1=mm1_model(20,50,3)
+P_1
+P_2=mm1_model(26,55,3)
+P_2

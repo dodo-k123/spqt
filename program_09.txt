@@ -1,0 +1,46 @@
+#To calculate probabilities using normal distribution E(x)=50 , sd=8.5, find
+#(i)P(x<=45)  (ii)P(x>=55)  (iii)P(48<=x<=70)
+
+p1 = pnorm(45,50,8.5,lower.tail = TRUE)
+p1
+x = c(25.5:74.5,by =0.5)
+y = dnorm(x,50,8.5)
+plot(x,y,type = "l", col= "red")
+abline(v = 50,col= "red") 
+x1 = c(24.5:45,by = 0.5)
+y= dnorm(x1,50,8.5)
+polygon(c(24.5,x1,45),c(0,y,0),col = "red")
+p2 = pnorm(55,50,8.5,lower.tail = FALSE)
+p2
+p3 = sum(dnorm(c(48:70),50,8.5))
+p3
+x = c(25.5:74.5,by =0.5)
+y = dnorm(x,50,8.5)
+plot(x,y,type = "l", col= "red")
+x2 = c(48:70)
+y1 = dnorm(x2,50,8.5)
+polygon(c(48,x2,70),c(0,y1,0),col= "green")
+
+##or
+
+P_1=pnorm(45,50,8.5,lower.tail=TRUE)
+P_1
+x=c(24.5:75.5)
+x
+y=dnorm(x,50,6.5)
+y
+plot(x,y,main="normal curve",xlab="r.v",ylab="normal prob",col="red")
+abline(v=50,col="green")
+#for shading
+x=c(24.5:45)
+y=dnorm(x,50,8.5)
+y
+polygon(c(24.5,x,45),c(0,y,0),col="cyan")
+P_2=pnorm(55,50,8.5,lower.tail=TRUE)
+P_2
+x=c(55:75.5)
+y=dnorm(x,50,8.5)
+y
+polygon(c(55,x,75.5),c(0,y,0),col="red")
+
+P_3=pnorm(50,75.5,8.5)-pnorm(48,50,8.5)

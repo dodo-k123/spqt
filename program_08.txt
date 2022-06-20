@@ -1,0 +1,26 @@
+#(i) The average service rate is 80 hrs. Find the probability   (a) atmost 20 hrs  
+#(b) atleast 50 hrs
+#FORMULA: 
+#E(X) = 1/ theta = 80, theta= = 0.0125
+
+p1=pexp(20,0.0125,lower.tail=TRUE)
+p1
+x=seq(0:100)
+curve(pexp(x,0.0125), from=0, to=1000 , col="red")
+p2 = pexp(50,0.0125,lower.tail = FALSE)
+p2
+curve(dexp(x,0.0125), from=0, to=1000 , col="red")
+
+#(ii) The average life of the battery is 300 hours. Find the probability that
+#(a)atmost 450 hrs  (b)atleast 300 hrs  (c)P(150<x<250)
+
+#FORMULA: 
+#E(X) = 1/ theta = 300, theta= = 0.0033
+p1 = pexp(450,0.0033,lower.tail = TRUE)
+p1
+x = c(0:5000)
+curve(pexp(x,0.0033),from =0,to = 5000,col= "green")
+p2 = pexp(300,0.0033,lower.tail = FALSE)
+p2
+p3 = pexp(250,0.0033) - pexp(150,0.0033)
+p3
